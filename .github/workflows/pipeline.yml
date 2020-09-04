@@ -1,0 +1,20 @@
+name: Pipeline
+
+on: [push]
+
+jobs:
+  build-and-publish-image:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout-code
+        uses: actions/checkout@v2
+
+      run: |
+        export TAG="${GITHUB_REF##*/}"
+        echo "::set-env name=TAG::$TAG"
+
+      - id: build-docker-image
+        run: make build
+
+      - id: publish-docker-image
+        run: make publish

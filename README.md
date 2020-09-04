@@ -2,7 +2,7 @@
 
 ## Container software
 - alpine 3.10
-- ansible 2.9.1
+- ansible 2.9.13
 - python 3.7
 - pip
 - vim
